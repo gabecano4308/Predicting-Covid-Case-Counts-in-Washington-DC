@@ -16,9 +16,6 @@
 * [Diabetes Prevalence csv (only up to 2006)](https://catalog.data.gov/dataset/selected-trend-table-from-health-united-states-2011-diabetes-prevalence-and-glycemic-contr)
 * [2020 National Diabetes Statistics Report](https://www.cdc.gov/diabetes/pdfs/data/statistics/national-diabetes-statistics-report.pdf)
 * [Diabetes 2030](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5278808/)
-
-
-​
 ​
 ---
 ​
