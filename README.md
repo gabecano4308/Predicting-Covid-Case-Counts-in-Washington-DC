@@ -1,58 +1,65 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Project : Capstone
+# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Predicting Covid Case Counts per Ward in Washington, DC
 ​
 ### Problem Statement
-> Over the last 30 years, diabetes prevalence and incidence in the United States have been rising steadily, which has put the American people in an ever-worsening public health crisis. Combining California diabetes prevalence data from 2012-2018, alongside state-level diabetes indicator survey data, I plan to conduct a time series analysis and train models to predict future California diabetes prevalence rates. These predictions should inform policy on how to best allocate funds for diabetes prevention/awareness.
-​
+> As of January 22, the U.S. Government has begun distributing a promising vaccine to the public, but Coronavirus cases are still spiking -- this is especially true in the DC area, where ICU beds are over 75% full. If healthcare administrators could better predict which areas of DC were going to receive more positive cases, they could better allot resources to provide infected patients the attention they need. With this in mind, I endeavor to use an array of time series models to forecast the count of daily cases in each of DC’s 8 Wards.
+
+<!-- ---
+
+### Executive Summary​
+
+Ward 3 has the most days in the lower 0-5 reported cases range, while other Wards have more varied distributions. In Ward 4 for instance, about 30-41 cases were reported in one day on almost 20 occasions. -->
 
 ---
-### Loaded Datasets (Plan to Use)
-* [ca-diabetes-per-100.csv](https://github.com/gabecano4308/Capstone-Project/blob/main/Data/ca-diabetes-per-100.csv)
-* [diabetes_indicators.csv (the csv on GitHub is too big to display right now, will eventually narrow down the data)](https://chronicdata.cdc.gov/Chronic-Disease-Indicators/U-S-Chronic-Disease-Indicators-Diabetes/f8ti-h92k/data)
-* [diabetes_prevalence.csv](https://github.com/gabecano4308/Capstone-Project/blob/main/Data/diabetes_prevalence.csv)
+### Datasets
+* [dc_covid_cases_by_ward.csv](link to GitHub)
+* [tot_cases_per_ward_df.csv](link to GitHub)
+* [net_new_daily_cases.csv](link to GitHub)
+* [temp_stats.csv](link to GitHub)
+* [engineered_df.csv](link to GitHub)
+* [model_df.csv](link to GitHub)
+* [model_df_sc.csv](link to GitHub)
+* [model_df_sc_diff.csv](link to GitHub)
+​
+---
 
----
-### Other Sources That Could Be Useful​
-* [Diabetes Prevalence (pdfs and tables)](https://www.cdc.gov/nchs/hus/contents2018.htm?search=Diabetes,)
-* [Diabetes Prevalence csv (only up to 2006)](https://catalog.data.gov/dataset/selected-trend-table-from-health-united-states-2011-diabetes-prevalence-and-glycemic-contr)
-* [2020 National Diabetes Statistics Report](https://www.cdc.gov/diabetes/pdfs/data/statistics/national-diabetes-statistics-report.pdf)
-* [Diabetes 2030](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5278808/)
-​
----
-​
 ### Data Dictionary
-|Feature|Type|Dataset|Description|
-|---|---|---|---|
-​
-​
+|Features|Type|Description|
+|---|---|---|
+|Ward_1_Cases, Ward_2_Cases, etc. up to 8|Float|Daily number of new COVID cases per Ward of DC.|
+|Ward_1_Cases_1M_Avg, Ward_2_Cases_1M_Avg, etc. up to 8|Float|One month rolling average for the daily number of new COVID cases per Ward of DC (first 30 values are NA).|
+|Ward_1_Cases_2M_Avg, Ward_2_Cases_2M_Avg, etc. up to 8|Float|Two month rolling average for the daily number of new COVID cases per Ward of DC (first 60 values are NA).|
+|Ward_1_Cases_Shift_M, Ward_2_Cases_Shift_M, etc. up to 8|Float|Daily number of new COVID cases per Ward of DC, shifted backward one month (first 30 values are NA).|
+|Ward_1_Cases_Shift_2W, Ward_2_Cases_Shift_2W, etc. up to 8|Float|Daily number of new COVID cases per Ward of DC, shifted backward two weeks (first 14 values are NA).|
+|Avg_Temp|Float|Average daily temperatures in the DC area from April 1 to January 18.|
+
+<!-- ---
+
+<!-- ### Analysis Summary​
+
+Ward 3 has the most days in the lower 0-5 reported cases range, while other Wards have more varied distributions. In Ward 4 for instance, about 30-41 cases were reported in one day on almost 20 occasions. -->
+
 ---
-​
-### Analysis Summary
-​
-​
-​
----
-​
+
 ### Conclusions & Considerations
 ​
-​Given Covid case counts and average temperature as variables, the rolling ARIMAX model gives lower prediction errors than the VAR model
+​Given Covid case counts and average temperature as variables, the rolling ARIMAX model gives lower prediction errors than the VAR model.
 
 Health administrators in DC should leverage the ARIMAX model to identify which Wards are more likely to have spikes in new cases, in order to more efficiently allocate the healthcare resources at hand.
-
 
 ---
 
 ### Further Research and Data to Gather
 
-* Looking forward, some potentially valuable additions I'd like to make to this project include:
-- Adding average income per Ward as a variable
-- Spending more time tinkering with hyperparameters
-- Making a Tableau dashboard
+- Including average income per Ward as an exogenous variable, since there appears to be a negative correlation between socioeconomic status and COVID cases.
+- Creating a Tableau dashboard to interactively analyze current data and make predictions.
 
 ---
-​
-### Sources Cited:
+### Data Sources:
 
-* https://opendata.dc.gov/datasets/dc-covid-19-cases-by-ward/data
-* https://khn.org/morning-breakout/critical-bed-shortages-in-u-s-hospitals/
+* Data on DC COVID-19 Cases by Ward was taken from [Open Data DC's website](https://opendata.dc.gov/datasets/dc-covid-19-cases-by-ward/data).
+* Data tables on daily average temperatures in the DC area were copied from [Weather Underground's website](https://www.wunderground.com/history/daily/us/va/arlington-county/KDCA).
 
-* https://www.nbcwashington.com/news/local/coronavirus-in-dc-maryland-virginia-what-to-know-on-dec-22/2517745/
+#### Other Sources Cited:
+
+* [KHN - Critical Bed Shortages in US Hospitals](https://khn.org/morning-breakout/critical-bed-shortages-in-u-s-hospitals/)
+* [NBC Washington - DMV COVID Updates](https://www.nbcwashington.com/news/local/coronavirus-in-dc-maryland-virginia-what-to-know-on-dec-22/2517745/)
