@@ -9,7 +9,7 @@
 * [ca-diabetes-per-100.csv](https://github.com/gabecano4308/Capstone-Project/blob/main/Data/ca-diabetes-per-100.csv)
 * [diabetes_indicators.csv (the csv on GitHub is too big to display right now, will eventually narrow down the data)](https://chronicdata.cdc.gov/Chronic-Disease-Indicators/U-S-Chronic-Disease-Indicators-Diabetes/f8ti-h92k/data)
 * [diabetes_prevalence.csv](https://github.com/gabecano4308/Capstone-Project/blob/main/Data/diabetes_prevalence.csv)
-​
+
 ---
 ### Other Sources That Could Be Useful​
 * [Diabetes Prevalence (pdfs and tables)](https://www.cdc.gov/nchs/hus/contents2018.htm?search=Diabetes,)
@@ -19,7 +19,7 @@
 ​
 ---
 ​
-<!-- ### Data Dictionary
+### Data Dictionary
 |Feature|Type|Dataset|Description|
 |---|---|---|---|
 ​
