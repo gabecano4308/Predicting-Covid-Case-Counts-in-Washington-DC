@@ -10,16 +10,21 @@
 ### Contents
 | Notebook | File Name | Description |
 |----|----|----|
-|**1**|[1_EDA_DC_Covid.ipynb](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/1_EDA_DC_Covid.ipynb)|Data collection using Petfinder API and Petpy wrapper. Data cleaning and feature engineering. EDA, exploratory LogReg and TFIDF model|
-|**2**|[2_Feature_Engineering.ipynb](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/2_Feature_Engineering.ipynb)|LogReg, Bagging Classifier, Random Forest, AdaBoost and XGBoost Models|
-|**3**|[3_Baseline_Modeling.ipynb](https://github.com/jessicabow/Capstone/blob/main/3-FeatureUnion.ipynb)| TFIDF (ordinal) and LogReg (numerical) Feature Union Model + Misclassification DataFrame Creation|
-|**4**|[4_ARIMAX_Modeling.ipynb](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/4_Baseline_Modeling.ipynb)|Post Modeling + Misclassification EDA (in support of Tableau visuals)|
-|**5**|[5_VAR_Modeling.ipynb](https://github.com/jessicabow/Capstone/blob/main/4-Inference.ipynb)|Post Modeling + Misclassification EDA (in support of Tableau visuals)|
-|**6**|[6_Predicting_Covid_Cases_DC.pdf](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/7_Predicting_Covid_Cases_DC.pdf)|Post Modeling + Misclassification EDA (in support of Tableau visuals)|
+|**1**|[1_EDA_DC_Covid.ipynb](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/1_EDA_DC_Covid.ipynb)|COVID-related data collection, cleaning, and visual analysis.|
+|**2**|[2_Feature_Engineering.ipynb](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/2_Feature_Engineering.ipynb)|Temperature-related data collection, checking for shifted time and rolling average trends, and standardizing the scale of the variables.|
+|**3**|[3_Baseline_Modeling.ipynb](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/3_Baseline_Modeling.ipynb)|Baseline model creation to compare score efficacy against ARIMAX and VAR models.|
+|**4**|[4_ARIMAX_Modeling.ipynb](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/4_ARIMAX_Modeling.ipynb)|Standard and rolling prediction ARIMAX modeling -- Augmented Dickey Fuller testing to determine stationarity, grid searching for optimal p and q values per Ward.|
+|**5**|[5_VAR_Modeling.ipynb](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/5_VAR_Modeling.ipynb)|Rolling prediction VAR model including all 8 Wards and temperature variables.|
+|**6**|[6_Predicting_Covid_Cases_DC.pdf](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/6_Predicting_Covid_Cases_DC.pdf)|Google Slides pdf for presenting key findings to stakeholders.|
 
 ---
 
 ### Analysis and Summary​
+
+Walk through data collection and cleaning (images/interpretation)
+Walk through baseline modeling
+Walk through ARIMAX and VAR modeling (images/interpretation)
+
 
 Ward 3 has the most days in the lower 0-5 reported cases range, while other Wards have more varied distributions. In Ward 4 for instance, about 30-41 cases were reported in one day on almost 20 occasions.
 
