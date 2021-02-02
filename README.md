@@ -24,7 +24,7 @@
 ### Analysis and Summary​
 
 Walk through data collection and cleaning (images/interpretation)
-![Aggregated](1_EDA_DC_Covid_cell_32_output_0.png)
+![Aggregated](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/1_EDA_DC_Covid_cell_32_output_0.png)
 
 
 Walk through baseline modeling
