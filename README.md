@@ -5,6 +5,8 @@
 
 > To tackle this issue, I extracted data on reported daily positive cases in DC for each of its eight Wards, as well as daily average temperatures over that same time span. I then fitted a variety of Auto Regressive Integrated Moving Average models with temperature as an exogenous variable (ARIMAX) as well as a Vector Auto Regressive model (VAR) on the data to forecast the count of daily cases per Ward.
 
+
+
 ---
 
 ### Contents
@@ -22,7 +24,12 @@
 ### Analysis and Summary​
 
 Walk through data collection and cleaning (images/interpretation)
+![Aggregated](1_EDA_DC_Covid_cell_32_output_0.png)
+
+
 Walk through baseline modeling
+
+
 Walk through ARIMAX and VAR modeling (images/interpretation)
 
 
@@ -61,9 +68,7 @@ We know Winter months lead to increased cases since more people are going indoor
 
 Health administrators in DC should leverage the ARIMAX model to identify which Wards are more likely to have spikes in new cases, in order to more efficiently allocate the healthcare resources at hand.
 
----
-
-### Further Research and Data to Gather
+#### Further Research and Data to Gather
 
 - Including average income per Ward as an exogenous variable, since there appears to be a negative correlation between socioeconomic status and COVID cases.
 - Creating a Tableau dashboard to interactively analyze current data and make predictions.
