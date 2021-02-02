@@ -1,13 +1,29 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Predicting Covid Case Counts per Ward in Washington, DC
+# Predicting Covid Case Counts per Ward in Washington, DC
 ​
-### Problem Statement
-> As of January 22, the U.S. Government has begun distributing a promising vaccine to the public, but Coronavirus cases are still spiking -- this is especially true in the DC area, where ICU beds are over 75% full. If healthcare administrators could better predict which areas of DC were going to receive more positive cases, they could better allot resources to provide infected patients the attention they need. With this in mind, I endeavor to use an array of time series models to forecast the count of daily cases in each of DC’s 8 Wards.
+### Background and Problem Statement
+> COVID-19 is the most devastating pandemic to emerge in the past century, causing millions of human deaths worldwide, as well as lasting economic and psychological damage for countless more. As of January 22, the U.S. Government has begun distributing a promising vaccine to the American public, but Coronavirus cases are still spiking -- this is especially true in the Washington, DC area, where ICU beds were over 75% full at the beginning of 2021. Focusing on DC, if healthcare administrators could better predict which areas of the city were going to receive more positive cases, they could better allot resources to provide infected patients the attention they need.
 
-<!-- ---
+> To tackle this issue, I extracted data on reported daily positive cases in DC for each of its eight Wards, as well as daily average temperatures over that same time span. I then fitted a variety of Auto Regressive Integrated Moving Average models with temperature as an exogenous variable (ARIMAX) as well as a Vector Auto Regressive model (VAR) on the data to forecast the count of daily cases per Ward.
 
-### Executive Summary​
+---
 
-Ward 3 has the most days in the lower 0-5 reported cases range, while other Wards have more varied distributions. In Ward 4 for instance, about 30-41 cases were reported in one day on almost 20 occasions. -->
+### Contents
+| Notebook | File Name | Description |
+|----|----|----|
+|**1**|[1_EDA_DC_Covid.ipynb](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/1_EDA_DC_Covid.ipynb)|Data collection using Petfinder API and Petpy wrapper. Data cleaning and feature engineering. EDA, exploratory LogReg and TFIDF model|
+|**2**|[2_Feature_Engineering.ipynb](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/2_Feature_Engineering.ipynb)|LogReg, Bagging Classifier, Random Forest, AdaBoost and XGBoost Models|
+|**3**|[3_Baseline_Modeling.ipynb](https://github.com/jessicabow/Capstone/blob/main/3-FeatureUnion.ipynb)| TFIDF (ordinal) and LogReg (numerical) Feature Union Model + Misclassification DataFrame Creation|
+|**4**|[4_ARIMAX_Modeling.ipynb](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/4_Baseline_Modeling.ipynb)|Post Modeling + Misclassification EDA (in support of Tableau visuals)|
+|**5**|[5_VAR_Modeling.ipynb](https://github.com/jessicabow/Capstone/blob/main/4-Inference.ipynb)|Post Modeling + Misclassification EDA (in support of Tableau visuals)|
+|**6**|[6_Predicting_Covid_Cases_DC.pdf](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/7_Predicting_Covid_Cases_DC.pdf)|Post Modeling + Misclassification EDA (in support of Tableau visuals)|
+
+---
+
+### Analysis and Summary​
+
+Ward 3 has the most days in the lower 0-5 reported cases range, while other Wards have more varied distributions. In Ward 4 for instance, about 30-41 cases were reported in one day on almost 20 occasions.
+
+We know Winter months lead to increased cases since more people are going indoors. Indoor crowds make spreading easier.
 
 ---
 ### Datasets
@@ -22,7 +38,7 @@ Ward 3 has the most days in the lower 0-5 reported cases range, while other Ward
 ​
 ---
 
-### Data Dictionary
+<!-- ### Data Dictionary
 |Features|Type|Description|
 |---|---|---|
 |Ward_1_Cases, Ward_2_Cases, etc. up to 8|Float|Daily number of new COVID cases per Ward of DC.|
@@ -32,11 +48,7 @@ Ward 3 has the most days in the lower 0-5 reported cases range, while other Ward
 |Ward_1_Cases_Shift_2W, Ward_2_Cases_Shift_2W, etc. up to 8|Float|Daily number of new COVID cases per Ward of DC, shifted backward two weeks (first 14 values are NA).|
 |Avg_Temp|Float|Average daily temperatures in the DC area from April 1 to January 18.|
 
-<!-- ---
-
-<!-- ### Analysis Summary​
-
-Ward 3 has the most days in the lower 0-5 reported cases range, while other Wards have more varied distributions. In Ward 4 for instance, about 30-41 cases were reported in one day on almost 20 occasions. -->
+<!-- --- -->
 
 ---
 
