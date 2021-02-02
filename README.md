@@ -1,7 +1,7 @@
 # Predicting Covid Case Counts per Ward in Washington, DC
 ​
 ### Background and Problem Statement
-> COVID-19 is the most devastating pandemic to emerge in the past century, causing millions of human deaths worldwide, as well as lasting economic and psychological damage for countless more. As of January 22, the U.S. Government has begun distributing a promising vaccine to the American public, but Coronavirus cases are still spiking -- this is especially true in the Washington, DC area, where ICU beds were over 75% full at the beginning of 2021. Focusing on DC, if healthcare administrators could better predict which areas of the city were going to receive more positive cases, they could better allot resources to provide infected patients the attention they need.
+> COVID-19 is the most devastating pandemic to emerge in the past century, causing millions of human deaths worldwide, as well as lasting economic and psychological damage for countless more. As of January 22, the U.S. Government has begun distributing a promising vaccine to the American public, but Coronavirus cases are still spiking -- this is especially true in the Washington, DC area, where ICU beds were over 75% full at the beginning of 2021. Focusing on DC, if healthcare administrators could better predict which areas of the city were going to receive more positive cases, they could better allot resources to provide infected patients the medical attention they need.
 
 > To tackle this issue, I extracted data on reported daily positive cases in DC for each of its eight Wards, as well as daily average temperatures over that same time span. I then fitted a variety of Auto Regressive Integrated Moving Average models with temperature as an exogenous variable (ARIMAX) as well as a Vector Auto Regressive model (VAR) on the data to forecast the count of daily cases per Ward.
 
@@ -31,7 +31,7 @@ Ward 3 has the most days in the lower 0-5 reported cases range, while other Ward
 We know Winter months lead to increased cases since more people are going indoors. Indoor crowds make spreading easier.
 
 ---
-### Datasets
+<!-- ### Datasets
 * [dc_covid_cases_by_ward.csv](link to GitHub)
 * [tot_cases_per_ward_df.csv](link to GitHub)
 * [net_new_daily_cases.csv](link to GitHub)
@@ -39,7 +39,7 @@ We know Winter months lead to increased cases since more people are going indoor
 * [engineered_df.csv](link to GitHub)
 * [model_df.csv](link to GitHub)
 * [model_df_sc.csv](link to GitHub)
-* [model_df_sc_diff.csv](link to GitHub)
+* [model_df_sc_diff.csv](link to GitHub) -->
 ​
 ---
 
