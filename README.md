@@ -41,7 +41,7 @@ We know Winter months lead to increased cases since more people are going indoor
 * [model_df_sc.csv](link to GitHub)
 * [model_df_sc_diff.csv](link to GitHub) -->
 ​
----
+<!-- ---
 
 <!-- ### Data Dictionary
 |Features|Type|Description|
@@ -55,7 +55,7 @@ We know Winter months lead to increased cases since more people are going indoor
 
 <!-- --- -->
 
----
+--- -->
 
 ### Conclusions & Considerations
 ​
