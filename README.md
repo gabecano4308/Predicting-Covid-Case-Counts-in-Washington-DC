@@ -55,8 +55,6 @@ We know Winter months lead to increased cases since more people are going indoor
 
 <!-- --- -->
 
---- -->
-
 ### Conclusions & Considerations
 ​
 ​Given Covid case counts and average temperature as variables, the rolling ARIMAX model gives lower prediction errors than the VAR model.
