@@ -25,12 +25,16 @@
 
 Walk through data collection and cleaning (images/interpretation)
 ![Aggregated](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/1_EDA_DC_Covid_cell_32_output_0.png)
+![Net New Daily](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/1_EDA_DC_Covid_cell_33_output_0.png)
+![Histograms](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/1_EDA_DC_Covid_cell_35_output_0.png)
 
 
 Walk through baseline modeling
 
 
 Walk through ARIMAX and VAR modeling (images/interpretation)
+![ARIMAX](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/4_ARIMAX_Modeling_cell_49_output_0.png)
+![VAR](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/5_VAR_Modeling_cell_24_output_0.png)
 
 
 Ward 3 has the most days in the lower 0-5 reported cases range, while other Wards have more varied distributions. In Ward 4 for instance, about 30-41 cases were reported in one day on almost 20 occasions.
