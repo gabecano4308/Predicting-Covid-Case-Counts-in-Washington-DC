@@ -37,16 +37,16 @@ I wanted the time series models to predict net-new reported daily cases as oppos
 
 To construct a baseline time series model, I used the Persistence Algorithm, which simply uses the previous value from the day before to predict the following day, as described in Jason Brownlee's blog post on [Machine Learning Mastery](https://machinelearningmastery.com/persistence-time-series-forecasting-with-python/#:~:text=Persistence%20Algorithm%20(the%20%E2%80%9Cnaive%E2%80%9D%20forecast)&text=The%20equivalent%20technique%20for%20use,step%20(t%2B1).). Using this baseline, I calculated RMSE for each DC Ward in order to compare against the other time series models' RMSEs.   
 
-ARIMAX Walkthrough
-
 After conducting an Augmented Dickey Fuller test to determine the stationarity of all data at d = 2, I grid searched for the p and q values that would provide the lowest Akaike Information Criterion (a commonly used estimator of prediction error), per Ward. I then ran the ARIMAX models with these p, q, and d values fitted with the corresponding training set of the Ward data. THE 'X' in ARIMAX stands for the model's exogenous variable, which in this case is daily average temperature.
 
 For each Ward, I first used ARIMAX to forecast the test set values in one run. Then, I created 'Rolling' ARIMAX models, which forecast the test set values through the iterative process of 1) predicting the following observation, 2) adding the observation to the training set, 3) running the model with the updated training set, and 4) adding the new observation to training, repeating the process until all test set values are forecasted. Below are two subplots showing the train and test data for Ward 4, along with the forecasted values in green, for the one-time predictions and the rolling predictions.
 
+#### ARIMAX Model Prediction Results (One-Time and Rolling)
 ![ARIMAX](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/4_ARIMAX_Modeling_cell_49_output_0.png)
 
 In addition to creating multiple ARIMAX models for each Ward in DC, I was interested in using a single Vector Autoregression model (VAR). VAR is a multivariate time series model that can take the changes of all included endogenous variables into account. Similarly to the ARIMAX modeling process, ran the Augmented Dickey Fuller test and differenced the data once. I employed a rolling prediction method, iteratively fitting a VAR model with training data updated with each one-step forecast. Below is a plot showing the train and test data for Ward 5, along with the rolling forecasted values in green.
 
+#### VAR Model Prediction Results
 ![VAR](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/5_VAR_Modeling_cell_24_output_0.png)
 
 ---
