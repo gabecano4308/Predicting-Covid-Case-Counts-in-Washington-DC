@@ -1,5 +1,7 @@
 # Predicting COVID-19 Case Counts per Ward in Washington, DC
 
+![dc_image](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/dc_mall.png)
+
 ### Background and Problem Statement
 > COVID-19 is the most devastating pandemic to emerge in the past century, causing millions of human deaths worldwide, as well as lasting economic and psychological damage for countless more. As of January 22, the U.S. Government has begun distributing a promising vaccine to the American public, but Coronavirus cases are still spiking -- this is especially true in the Washington, DC area, where ICU beds were over 75% full at the beginning of 2021. Focusing on DC, if healthcare administrators could better predict which areas of the city were going to receive more positive cases, they could better allot resources to provide infected patients the medical attention they need.
 
@@ -27,7 +29,7 @@ The below graph shows the cumulative number of reported positive COVID-19 cases 
 
 ![Aggregated](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/1_EDA_DC_Covid_cell_32_output_0.png)
 
-I wanted the time series models to predict net-new reported daily cases as opposed to the cumulative total, so I differenced the dataset to obtain that information. The below graph shows the differenced data for Ward 7 along with average regional temperatures during that same time period. Similarly to the aggregated plot, one can see increased daily cases during the first few and last few months, as well as a decrease through the Summer. The temperature tends to rise as the case rate drops, as confirmed with a moderately negative correlation between temperature and all Ward case rates, displayed in the below correlation Heatmap.
+I wanted the time series models to predict net-new reported daily cases as opposed to the cumulative total, so I differenced the dataset to obtain that information. The below graph shows the differenced data for Ward 7 along with its one-month average and average regional temperatures. Similarly to the aggregated plot, one can see increased daily cases during the first few and last few months, as well as a decrease through the Summer. The temperature tends to rise as the case rate drops, as confirmed with a moderately negative correlation between temperature and all Ward case rates, displayed in the below correlation Heatmap.
 
 ![Net New Daily and Temp](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/2_Feature_Engineering_cell_24_output_0.png)
 
