@@ -29,10 +29,10 @@ The below graph shows the cumulative number of reported positive COVID-19 cases 
 
 I wanted the time series models to predict net-new reported daily cases as opposed to the cumulative total, so I differenced the dataset to obtain that information. The below graph shows the differenced data for Ward 7 along with its one-month average and average regional temperatures. Similarly to the aggregated plot, one can see increased daily cases during the first few and last few months, as well as a decrease through the Summer. The temperature tends to rise as the case rate drops, as confirmed with a moderately negative correlation between temperature and all Ward case rates, displayed in the below correlation Heatmap.
 
-![Net New Daily and Temp](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/2_Feature_Engineering_cell_24_output_0.png)
+![Net New Daily and Temp](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/avg_temp_and_cases.png)
 
 
-![Heatmap](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/2_Feature_Engineering_cell_19_output_0.png)
+![Heatmap](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/corr_heatmap.png)
 
 
 To construct a baseline time series model, I used the Persistence Algorithm, which simply uses the previous value from the day before to predict the following day, as described in Jason Brownlee's blog post on [Machine Learning Mastery](https://machinelearningmastery.com/persistence-time-series-forecasting-with-python/#:~:text=Persistence%20Algorithm%20(the%20%E2%80%9Cnaive%E2%80%9D%20forecast)&text=The%20equivalent%20technique%20for%20use,step%20(t%2B1).). Using this baseline, I calculated RMSE for each DC Ward in order to compare against the other time series models' RMSEs.   
@@ -47,7 +47,7 @@ For each Ward, I first used ARIMAX to forecast the test set values in one run. T
 In addition to creating multiple ARIMAX models for each Ward in DC, I was interested in using a single Vector Autoregression model (VAR). VAR is a multivariate time series model that can take the changes of all included endogenous variables into account. Similarly to the ARIMAX modeling process, ran the Augmented Dickey Fuller test and differenced the data once. I employed a rolling prediction method, iteratively fitting a VAR model with training data updated with each one-step forecast. Below is a plot showing the train and test data for Ward 5, along with the rolling forecasted values in green.
 
 #### VAR Model Prediction Results
-![VAR](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/5_VAR_Modeling_cell_24_output_0.png)
+![VAR](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/var_results.png)
 
 RMSE scores for each model type are laid out below. Overall, every model performed better than the baseline, with the exception of the ARIMAX (One-Time) models for Wards 5 and 7. Overall, the rolling ARIMAX RMSE models gave the lowest errors.
 
