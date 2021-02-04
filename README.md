@@ -17,7 +17,7 @@
 |**3**|[3_Baseline_Modeling.ipynb](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/3_Baseline_Modeling.ipynb)|Baseline model creation to compare score efficacy against ARIMAX and VAR models.|
 |**4**|[4_ARIMAX_Modeling.ipynb](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/4_ARIMAX_Modeling.ipynb)|Standard and rolling prediction ARIMAX modeling -- Augmented Dickey Fuller testing to determine stationarity, grid searching for optimal p and q values per Ward.|
 |**5**|[5_VAR_Modeling.ipynb](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/5_VAR_Modeling.ipynb)|Rolling prediction VAR model including all 8 Wards and temperature variables.|
-|**6**|[6_Predicting_Covid_Cases_DC.pdf](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/6_Predicting_Covid_Cases_DC.pdf)|Google Slides pdf for presenting key findings to stakeholders.|
+|**6**|[6_Presentation.pdf](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/6_Presentation.pdf)|Google Slides pdf for presenting key findings to stakeholders.|
 
 ---
 
