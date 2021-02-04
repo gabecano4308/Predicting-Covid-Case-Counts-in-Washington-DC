@@ -25,7 +25,7 @@
 
 The below graph shows the cumulative number of reported positive COVID-19 cases in each Ward of Washington, DC. The graph shows an initial spike in reported cases from March to May (the early months of the pandemic), followed by a gradual flattening through the Summer months, and finishing with a more prolonged spike during the last three Winter months. Seeing a pattern of increased cases during colder months, I decided to add daily average temperature to the dataset and use it as an exogenous variable in the time series models.
 
-![Aggregated](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/1_EDA_DC_Covid_cell_32_output_0.png)
+![Aggregated](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/agg_case_counts.png)
 
 I wanted the time series models to predict net-new reported daily cases as opposed to the cumulative total, so I differenced the dataset to obtain that information. The below graph shows the differenced data for Ward 7 along with its one-month average and average regional temperatures. Similarly to the aggregated plot, one can see increased daily cases during the first few and last few months, as well as a decrease through the Summer. The temperature tends to rise as the case rate drops, as confirmed with a moderately negative correlation between temperature and all Ward case rates, displayed in the below correlation Heatmap.
 
@@ -42,7 +42,7 @@ After conducting an Augmented Dickey Fuller test to determine the stationarity o
 For each Ward, I first used ARIMAX to forecast the test set values in one run. Then, I created 'Rolling' ARIMAX models, which forecast the test set values through the iterative process of 1) predicting the following observation, 2) adding the observation to the training set, 3) running the model with the updated training set, and 4) adding the new observation to training, repeating the process until all test set values are forecasted. Below are two subplots showing the train and test data for Ward 4, along with the forecasted values in green, for the one-time predictions and the rolling predictions.
 
 #### ARIMAX Model Prediction Results (One-Time and Rolling)
-![ARIMAX](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/4_ARIMAX_Modeling_cell_49_output_0.png)
+![ARIMAX](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/arimax_results.png)
 
 In addition to creating multiple ARIMAX models for each Ward in DC, I was interested in using a single Vector Autoregression model (VAR). VAR is a multivariate time series model that can take the changes of all included endogenous variables into account. Similarly to the ARIMAX modeling process, ran the Augmented Dickey Fuller test and differenced the data once. I employed a rolling prediction method, iteratively fitting a VAR model with training data updated with each one-step forecast. Below is a plot showing the train and test data for Ward 5, along with the rolling forecasted values in green.
 
