@@ -1,7 +1,5 @@
 # Predicting COVID-19 Case Counts per Ward in Washington, DC
 
-![dc_image](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/dc_mall.png)
-
 ### Background and Problem Statement
 > COVID-19 is the most devastating pandemic to emerge in the past century, causing millions of human deaths worldwide, as well as lasting economic and psychological damage for countless more. As of January 22, the U.S. Government has begun distributing a promising vaccine to the American public, but Coronavirus cases are still spiking -- this is especially true in the Washington, DC area, where ICU beds were over 75% full at the beginning of 2021. Focusing on DC, if healthcare administrators could better predict which areas of the city were going to receive more positive cases, they could better allot resources to provide infected patients the medical attention they need.
 
