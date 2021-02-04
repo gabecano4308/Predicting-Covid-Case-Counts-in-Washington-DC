@@ -1,4 +1,4 @@
-# Predicting Covid Case Counts per Ward in Washington, DC
+# Predicting COVID-19 Case Counts per Ward in Washington, DC
 ​
 ### Background and Problem Statement
 > COVID-19 is the most devastating pandemic to emerge in the past century, causing millions of human deaths worldwide, as well as lasting economic and psychological damage for countless more. As of January 22, the U.S. Government has begun distributing a promising vaccine to the American public, but Coronavirus cases are still spiking -- this is especially true in the Washington, DC area, where ICU beds were over 75% full at the beginning of 2021. Focusing on DC, if healthcare administrators could better predict which areas of the city were going to receive more positive cases, they could better allot resources to provide infected patients the medical attention they need.
@@ -12,7 +12,7 @@
 ### Contents
 | Notebook | File Name | Description |
 |----|----|----|
-|**1**|[1_EDA_DC_Covid.ipynb](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/1_EDA_DC_Covid.ipynb)|COVID-related data collection, cleaning, and visual analysis.|
+|**1**|[1_EDA_DC_Covid.ipynb](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/1_EDA_DC_Covid.ipynb)|COVID-19-related data collection, cleaning, and visual analysis.|
 |**2**|[2_Feature_Engineering.ipynb](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/2_Feature_Engineering.ipynb)|Temperature-related data collection, checking for shifted time and rolling average trends, and standardizing the scale of the variables.|
 |**3**|[3_Baseline_Modeling.ipynb](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/3_Baseline_Modeling.ipynb)|Baseline model creation to compare score efficacy against ARIMAX and VAR models.|
 |**4**|[4_ARIMAX_Modeling.ipynb](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/4_ARIMAX_Modeling.ipynb)|Standard and rolling prediction ARIMAX modeling -- Augmented Dickey Fuller testing to determine stationarity, grid searching for optimal p and q values per Ward.|
@@ -23,7 +23,7 @@
 
 ### Analysis and Summary​
 
-The below graph shows the cumulative number of reported positive Covid-19 cases in each Ward of Washington, DC. The graph shows an initial spike in reported cases from March to May (the early months of the pandemic), followed by a gradual flattening through the Summer months, and finishing with a more prolonged spike during the last three Winter months. Seeing a pattern of increased cases during colder months, I decided to add daily average temperature to the dataset and use it as an exogenous variable in the time series models.
+The below graph shows the cumulative number of reported positive COVID-19 cases in each Ward of Washington, DC. The graph shows an initial spike in reported cases from March to May (the early months of the pandemic), followed by a gradual flattening through the Summer months, and finishing with a more prolonged spike during the last three Winter months. Seeing a pattern of increased cases during colder months, I decided to add daily average temperature to the dataset and use it as an exogenous variable in the time series models.
 
 ![Aggregated](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/1_EDA_DC_Covid_cell_32_output_0.png)
 
@@ -49,17 +49,32 @@ In addition to creating multiple ARIMAX models for each Ward in DC, I was intere
 #### VAR Model Prediction Results
 ![VAR](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/5_VAR_Modeling_cell_24_output_0.png)
 
+RMSE scores for each model type are laid out below. Overall, every model performed better than the baseline, with the exception of the ARIMAX (One-Time) models for Wards 5 and 7. Overall, the rolling ARIMAX RMSE models gave the lowest errors.
+
+#### RMSE Results per Model Type
+| DC Ward | Baseline RMSE | ARIMAX RMSE (One-Time) | ARIMAX RMSE (Rolling) | VAR RMSE |
+|----|----|----|----|----|
+|Ward 1|17.0|16.6|12.6|13.2|
+|Ward 2|19.4|14.0|12.3|13.7|
+|Ward 3|9.1|7.1|6.7|7.0|
+|Ward 4|23.9|19.9|16.3|18.7|
+|Ward 5|24.4|25.4|18.4|18.0|
+|Ward 6|22.1|19.1|16.4|17.3|
+|Ward 7|23.1|24.1|15.7|17.0|
+|Ward 8|20.8|16.1|15.4|17.4|
+
 ---
 
 ### Conclusions & Considerations
 ​
-​Given Covid case counts and average temperature as variables, the rolling ARIMAX model gives lower prediction errors than the VAR model.
+​Given reported COVID-19 case counts and average temperature as variables, the rolling ARIMAX model gives the lowest prediction errors out of all other created models, beating out the baseline when forecasting errors in every Ward.
 
-Health administrators in DC should leverage the ARIMAX model to identify which Wards are more likely to have spikes in new cases, in order to more efficiently allocate the healthcare resources at hand.
+Health administrators in DC should leverage the rolling ARIMAX model to identify which Wards are more likely to have spikes in new cases, in order to more efficiently allocate the healthcare resources at hand.
 
 #### Further Research and Data to Gather
 
-- Including average income per Ward as an exogenous variable, since there appears to be a negative correlation between socioeconomic status and COVID cases.
+- Including average income per Ward as an exogenous variable, since there appears to be a negative correlation between socioeconomic status and COVID-19 cases.
+_ Including data on COVID-19 vaccine turnout rates per DC Ward.
 - Creating a Tableau dashboard to interactively analyze current data and make predictions.
 
 ---
