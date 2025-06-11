@@ -3,7 +3,7 @@
 ### Background and Problem Statement
 > COVID-19 is the most devastating pandemic to emerge in the past century, causing millions of human deaths worldwide, as well as lasting economic and psychological damage for countless more. As of January 22, 2021, the U.S. Government has begun distributing a promising vaccine to the American public, but Coronavirus cases are still spiking -- this is especially true in the Washington, DC area, where ICU beds were over 75% full at the beginning of 2021. Focusing on DC, if healthcare administrators could better predict which areas of the city were going to receive more positive cases, they could better allot resources to provide infected patients the medical attention they need.
 
-> To tackle this issue, I extracted data on reported daily positive cases in DC for each of its eight Wards, as well as daily average temperatures over that same time span. I then fitted a variety of Auto Regressive Integrated Moving Average models with temperature as an exogenous variable (ARIMAX) as well as a Vector Auto Regressive model (VAR) on the data to forecast the count of daily cases per Ward.
+> To tackle this issue, I extracted data on reported daily positive cases in DC for each of its eight Wards, as well as daily average temperatures over that same time span. I then fitted Auto Regressive Integrated Moving Average models with temperature as an exogenous variable (ARIMAX) as well as a Vector Auto Regressive model (VAR) on the data to forecast the count of daily cases per Ward.
 
 
 
@@ -39,29 +39,29 @@ To construct a baseline time series model, I used the Persistence Algorithm, whi
 
 After conducting an Augmented Dickey Fuller test to determine the stationarity of all data at d = 2, I grid searched for the p and q values that would provide the lowest Akaike Information Criterion (a commonly used estimator of prediction error), per Ward. I then ran the ARIMAX models with these p, q, and d values fitted with the corresponding training set of the Ward data. The 'X' in ARIMAX stands for the model's exogenous variable, which in this case is daily average temperature.
 
-For each Ward, I first used ARIMAX to forecast the test set values in one run. Then, I created 'Rolling' ARIMAX models, which forecast the test set values through the iterative process of 1) predicting the following observation, 2) adding the observation to the training set, 3) running the model with the updated training set, and 4) adding the new observation to training, repeating the process until all test set values are forecasted. Below are two subplots showing the train and test data for Ward 4, along with the forecasted values in green, for the one-time predictions and the rolling predictions.
+For each Ward, I created 'rolling' ARIMAX models, which forecast the test set values through the iterative process of 1) predicting the following observation, 2) adding the observation to the training set, 3) running the model with the updated training set, and 4) adding the new observation to training, repeating the process until all test set values are forecasted. Below is a plot showing the train and test data for Ward 4, along with the rolling predictions in green.
 
-#### ARIMAX Model Prediction Results (One-Time and Rolling)
-![ARIMAX](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/arimax_results.png)
+#### ARIMAX Model Prediction Results 
+![ARIMAX](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/arimax_ward4.png)
 
-In addition to creating multiple ARIMAX models for each Ward in DC, I was interested in using a single Vector Autoregression model (VAR). VAR is a multivariate time series model that can take the changes of all included endogenous variables into account. Similarly to the ARIMAX modeling process, I ran the Augmented Dickey Fuller test and differenced the data once. I then employed a rolling prediction method, iteratively fitting a VAR model with training data updated with each one-step forecast. Below is a plot showing the train and test data for Ward 5, along with the rolling forecasted values in green.
+In addition to creating an ARIMAX model for each Ward in DC, I was interested in using a single Vector Autoregression model (VAR). VAR is a multivariate time series model that can take the changes of all included endogenous variables into account. Similarly to the ARIMAX modeling process, I ran the Augmented Dickey Fuller test and differenced the data once. I then employed a rolling prediction method, iteratively fitting a VAR model with training data updated with each one-step forecast. Below is a plot showing the train and test data for Ward 5, along with the rolling forecasted values in green.
 
 #### VAR Model Prediction Results
 ![VAR](https://github.com/gabecano4308/Predicting-Covid-Case-Counts-in-Washington-DC/blob/main/Images/var_results.png)
 
-RMSE scores for each model type are laid out below. Overall, every model performed better than the baseline, with the exception of the ARIMAX (One-Time) models for Wards 5 and 7. Overall, the rolling ARIMAX RMSE models gave the lowest errors.
+RMSE scores for each model type are laid out below. Overall, every model performed better than the baseline. Overall, the rolling ARIMAX RMSE models gave the lowest errors.
 
 #### RMSE Results per Model Type
-| DC Ward | Baseline RMSE | ARIMAX RMSE (One-Time) | ARIMAX RMSE (Rolling) | VAR RMSE |
+| DC Ward | Baseline RMSE | ARIMAX RMSE (Rolling) | VAR RMSE |
 |----|----|----|----|----|
-|Ward 1|17.0|16.6|12.6|13.2|
-|Ward 2|19.4|14.0|12.3|13.7|
-|Ward 3|9.1|7.1|6.7|7.0|
-|Ward 4|23.9|19.9|16.3|18.7|
-|Ward 5|24.4|25.4|18.4|18.0|
-|Ward 6|22.1|19.1|16.4|17.3|
-|Ward 7|23.1|24.1|15.7|17.0|
-|Ward 8|20.8|16.1|15.4|17.4|
+|Ward 1|17.0|12.6|13.2|
+|Ward 2|19.4|12.3|13.7|
+|Ward 3|9.1|6.7|7.0|
+|Ward 4|23.9|16.3|18.7|
+|Ward 5|24.4|18.4|18.0|
+|Ward 6|22.1|16.4|17.3|
+|Ward 7|23.1|15.7|17.0|
+|Ward 8|20.8|15.4|17.4|
 
 ---
 
